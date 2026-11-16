@@ -1,0 +1,122 @@
+---
+title: "Reflection on Introduction to Positron"
+subtitle: "IBM 6500 · W02–M03"
+author: "Yujia Luo"
+lang: en
+format:
+  html:
+    theme: default
+    html-math-method: mathml
+    toc: true
+    toc-depth: 4
+    toc-expand: 2
+    number-sections: true
+    embed-resources: true
+    code-link: true
+    code-fold: true
+    code-summary: "Show R example"
+    code-overflow: wrap
+    code-tools:
+      source: true
+editor: visual
+execute:
+  freeze: auto
+---
+
+# Getting Started in Positron
+
+> **Prompt 1.** Download and Install Positron. As you watch the videos in Step 1 through Step 4, follow the activities in the video and be familiar with Positron.
+
+Working on this reflection helped me understand how the project folder, the Quarto source, and the finished report fit together. The **Explorer** keeps the report and supporting files visible, the **Source Editor** is where I can change the YAML options, and the **Console** gives me a place to try a line of R before putting it into a report. The **Variables** pane is useful when I need to check what an object contains after running code.
+
+1. Open the `Intro-Positron` folder as the project workspace.
+2. Create and save the `.qmd` file with the author, HTML format, and table-of-contents options in YAML.
+3. Render the file and open the HTML in a browser. Check the headings, table of contents, and links from a reader’s point of view.
+
+::: {.callout-tip}
+The **Render** step matters because the instructor will primarily read the HTML. For example, changing a heading in my source also means checking that it appears at the right level in the rendered table of contents.
+:::
+
+# Comparing Positron and RStudio
+
+> **Prompt 2.** Based on what you learned from Step 1 through Step 4, what do you like about Positron compared with RStudio?
+
+RStudio’s layout feels familiar for an assignment that uses only R. What I like about Positron is how easily I can move between organizing files, inspecting data, and writing the report. For a marketing analytics project, I might clean a dataset in Python and then summarize the results in an R-based Quarto report. Keeping those files in the same workspace makes it easier to trace a result back to the code that produced it.
+
+The comparison in @tbl-ide focuses on tasks that matter to me when preparing an assignment.
+
+| Task | What I like about Positron | What I value in RStudio |
+|---|---|---|
+| Inspect data | I can move from the Variables pane into Data Explorer to check fields and values. | The Environment pane gives me a familiar view of objects in an R session. |
+| Navigate project files | The Explorer and Command Palette make it easy to switch between source files, terminal commands, and Git. | The RStudio project layout is familiar for a smaller R assignment. |
+| Write reports | I can keep R and Python scripts alongside the Quarto report in the same workspace. | I can use the Quarto workflow I already know for an R report. |
+
+: Positron and RStudio in my coursework. {#tbl-ide}
+
+# Using AI in Positron
+
+> **Prompt 3.** In Step 4, the video demonstrates how you can use AI.
+
+## Ways to use AI
+
+> **Prompt 3.1.** Describe the various ways you can use AI inside Positron. Some are free while others are not.
+
+Inline completions can suggest the next line while I type. **Posit Assistant** chat is better suited to explaining an error, suggesting a debugging step, or helping me understand a Quarto option. Provider choice affects the features and cost. Some services offer free access or limited free tiers, while others require a subscription or charge for API usage. Verified students can activate GitHub Copilot Student through GitHub Education.[^ai-access]
+
+[^ai-access]: See the [Positron provider guide](https://positron.posit.co/assistant-providers.html) and [GitHub’s Copilot Student instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
+
+## Tools and practical use
+
+> **Prompt 3.2.** Which AI tools have you installed or set up? Which AI tools did you find beneficial for you?
+
+The two features I would use most are inline completion for syntax and chat for troubleshooting. For example, if a Quarto table does not appear in the report, I would ask chat to explain the render message and identify the first thing to check. I would then change one setting at a time and render again so I can tell which change fixed the problem.
+
+::: {.callout-note}
+My in-editor AI setup and hands-on test have yet to be documented.
+:::
+
+## GitHub Education and Copilot
+
+> **Prompt 3.3.** I strongly recommend using GitHub Copilot, which is free if you apply for an education account.
+>
+> 1. Apply for it and take a screenshot showing you were accepted into the education program.
+> 2. Play with it and do you find it helpful or distracting? Please elaborate.
+
+**GitHub Education verification.** An approval screenshot is pending.
+
+<!-- When available, replace the preceding line with the actual evidence:
+![GitHub Education approval](github-education-accepted.png){#fig-education fig-alt="GitHub Education approval confirmation"}
+-->
+
+**What I would look for in a hands-on test.** I would give Copilot a small task I can check myself, such as calculating a survey response rate. A suggestion is helpful if it speeds up the syntax while using the correct denominator. It becomes distracting when it offers a longer function than the task requires or invites me to accept the calculation before checking missing values. I would use chat when I need an explanation of the denominator and limit inline suggestions when I am still thinking through the analysis.
+
+In this example, 18 completed surveys out of 24 invitations give a response rate of 75%. I can verify that result by hand before comparing it with any suggestion.
+
+<details class="code-fold">
+<summary>Show R example</summary>
+
+```r
+completed_surveys <- 18
+invited_people <- 24
+response_rate <- completed_surveys / invited_people
+round(100 * response_rate, digits = 1)
+```
+
+</details>
+
+# Publishing to GitHub Pages
+
+> **Prompt 4.** Publish this report to GitHub Pages.
+>
+> Note that although both GitHub Pages and the GitHub repo are online, they are different. GitHub Pages is a website publishing service that hosts the rendered HTML from a QMD file.
+
+The **GitHub repository** holds the editable Quarto source and tracks changes. **GitHub Pages** gives the instructor a URL to read the rendered report in a browser. With `embed-resources: true`, the HTML can also be opened as a standalone file.
+
+The publishing setup uses the rendered report as `index.html` in the root of the `main` branch. In **Settings → Pages**, the publishing source is that branch and folder. The Pages link in the appendix opens the web version once deployment is complete.
+
+# Appendix
+
+> **Prompt 5.** Add the Appendix section at the bottom of your report and provide a URL to the GitHub Pages and GitHub Repo.
+
+- [GitHub Pages report](https://erttbx.github.io/W02-M03---Reflection-on-Introduction-to-Positron/)
+- [GitHub repository](https://github.com/erttbx/W02-M03---Reflection-on-Introduction-to-Positron)
